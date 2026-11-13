@@ -11,7 +11,7 @@ final class EncryptedUserDefaultsClientImplementation: EncryptedUserDefaultsClie
         DispatchQueue.getSpecific(key: queueKey) != nil
     }
 
-    internal let defaults: UserDefaults = .init(suiteName: "StytchEncryptedUserDefaults") ?? .standard
+    internal let defaults: UserDefaults = .init(suiteName: "StytchEncryptedUserDefaults." + (Bundle.main.bundleIdentifier ?? "unknown")) ?? .standard
 
     private init() {
         queue = DispatchQueue(label: "StytchEncryptedUserDefaultsClientQueue")
